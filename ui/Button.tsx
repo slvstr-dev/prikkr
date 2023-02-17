@@ -6,11 +6,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
-export default function Button({
+export const Button = ({
   kind = 'primary',
   size = 'medium',
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <button
       type="button"
@@ -26,4 +26,4 @@ export default function Button({
       {...props}
     />
   );
-}
+};

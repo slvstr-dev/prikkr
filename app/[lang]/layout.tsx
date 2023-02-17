@@ -3,6 +3,7 @@ import { i18n, Locale } from '@/i18n-config';
 import '@/styles/global.css';
 import { playfairDisplay, workSans } from './fonts';
 import { getDictionary } from '@/get-dictionary';
+import { Button, ThemeToggle } from '@/ui';
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -25,7 +26,11 @@ export default async function Root({
         <meta name="description" content={dictionary.general.metadata.description} />
       </head>
 
-      <body className="bg-yellow-50">{children}</body>
+      <body className="bg-yellow-50 dark:bg-slate-800 bg:text-white">
+        {children}
+
+        <ThemeToggle />
+      </body>
     </html>
   );
 }

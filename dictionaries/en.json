@@ -7,6 +7,8 @@
   },
   "home": {
     "title": "prikkr",
-    "button": "Plan meeting"
+    "buttons": {
+      "date": "Plan meeting"
+    }
   }
 }

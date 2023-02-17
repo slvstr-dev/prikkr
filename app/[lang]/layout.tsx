@@ -25,9 +25,7 @@ export default async function Root({
         <meta name="description" content={dictionary.general.metadata.description} />
       </head>
 
-      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-        {children}
-      </body>
+      <body className="bg-yellow-50">{children}</body>
     </html>
   );
 }

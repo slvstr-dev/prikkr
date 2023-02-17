@@ -7,7 +7,7 @@ export default async function Page({ params: { lang } }: { params: { lang: Local
 
   return (
     <section className="h-screen w-screen grid place-content-center place-items-center">
-      <h1 className="text-8xl text-white font-bold mb-8">{dictionary.home.title}</h1>
+      <h1 className="text-8xl text-red-500 font-bold mb-8">{dictionary.home.title}</h1>
 
       <Button kind="error">{dictionary.home.button}</Button>
     </section>

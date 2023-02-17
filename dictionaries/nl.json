@@ -1,4 +1,12 @@
 {
-  "title": "prikkr",
-  "button": "Prik datum"
+  "general": {
+    "metadata": {
+      "title": "prikkr",
+      "description": "prikkr is de tool om jouw volgende afspraak te plannen."
+    }
+  },
+  "home": {
+    "title": "prikkr",
+    "button": "Prik datum"
+  }
 }

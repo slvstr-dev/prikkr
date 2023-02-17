@@ -1,4 +1,12 @@
 {
-  "title": "prikker",
-  "button": "Plan meeting"
+  "general": {
+    "metadata": {
+      "title": "prikkr",
+      "description": "prikkr is the tool to plan your next meeting."
+    }
+  },
+  "home": {
+    "title": "prikkr",
+    "button": "Plan meeting"
+  }
 }

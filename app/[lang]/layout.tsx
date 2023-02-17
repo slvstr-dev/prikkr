@@ -1,21 +1,39 @@
 import { ReactNode } from 'react';
-import { i18n } from '@/i18n-config'
-import '@/styles/globals.css';
+import { i18n, Locale } from '@/i18n-config';
+import '@/styles/global.css';
+import { playfairDisplay, workSans } from './fonts';
+import { getDictionary } from '@/get-dictionary';
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }))
+  return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default function Root({
+export default async function Root({
   children,
   params,
 }: {
-  children: ReactNode
-  params: { lang: string }
+  children: ReactNode;
+  params: { lang: Locale };
 }) {
+  const dictionary = await getDictionary(params.lang);
+
   return (
-    <html lang={params.lang}>
-      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">{children}</body>
+    <html
+      lang={params.lang}
+      className={`${playfairDisplay.variable} ${workSans.variable}`}
+    >
+      <head>
+        <title>{dictionary.general.metadata.title}</title>
+
+        <meta
+          name="description"
+          content={dictionary.general.metadata.description}
+        />
+      </head>
+
+      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        {children}
+      </body>
     </html>
   );
-} 
+}

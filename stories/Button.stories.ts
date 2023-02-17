@@ -6,8 +6,8 @@ const meta: Meta<typeof Button> = {
   tags: ['autodocs'],
   component: Button,
   args: {
-    children: 'Label',
-  },
+    children: 'Label'
+  }
 };
 
 export default meta;
@@ -18,18 +18,18 @@ export const Primary: Story = {};
 
 export const Error: Story = {
   args: {
-    kind: 'error',
-  },
+    kind: 'error'
+  }
 };
 
 export const Large: Story = {
   args: {
-    size: 'large',
-  },
+    size: 'large'
+  }
 };
 
 export const Small: Story = {
   args: {
-    size: 'small',
-  },
+    size: 'small'
+  }
 };

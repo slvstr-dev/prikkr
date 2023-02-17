@@ -2,16 +2,16 @@ import '@/styles/global.css';
 
 export const parameters = {
   backgrounds: {
-    default: 'light',
+    default: 'light'
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
-    },
+      date: /Date$/
+    }
   },
   nextjs: {
-    appDirectory: true,
-  },
+    appDirectory: true
+  }
 };

@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         normal: ['var(--font-work-sans)'],
-        heading: ['var(--font-playfair-display)'],
-      },
-    },
+        heading: ['var(--font-playfair-display)']
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };

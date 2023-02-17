@@ -6,17 +6,17 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    '@storybook/addon-interactions'
   ],
   framework: {
     name: '@storybook/nextjs',
     options: {
-      nextConfigPath: path.resolve(__dirname, '../next.config.js'),
-    },
+      nextConfigPath: path.resolve(__dirname, '../next.config.js')
+    }
   },
   docs: {
-    autodocs: 'tag',
-  },
+    autodocs: 'tag'
+  }
 };
 
 export default config;

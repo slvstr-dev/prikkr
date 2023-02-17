@@ -10,7 +10,7 @@ export async function generateStaticParams() {
 
 export default async function Root({
   children,
-  params,
+  params
 }: {
   children: ReactNode;
   params: { lang: Locale };
@@ -18,17 +18,11 @@ export default async function Root({
   const dictionary = await getDictionary(params.lang);
 
   return (
-    <html
-      lang={params.lang}
-      className={`${playfairDisplay.variable} ${workSans.variable}`}
-    >
+    <html lang={params.lang} className={`${playfairDisplay.variable} ${workSans.variable}`}>
       <head>
         <title>{dictionary.general.metadata.title}</title>
 
-        <meta
-          name="description"
-          content={dictionary.general.metadata.description}
-        />
+        <meta name="description" content={dictionary.general.metadata.description} />
       </head>
 
       <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">

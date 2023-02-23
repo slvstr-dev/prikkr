@@ -3,12 +3,15 @@
     "metadata": {
       "title": "prikkr",
       "description": "prikkr is de tool om jouw volgende afspraak te plannen."
+    },
+    "buttons": {
+      "login": {
+        "signIn": "Inloggen",
+        "signOut": "Uitloggen"
+      }
     }
   },
   "home": {
-    "title": "prikkr",
-    "buttons": {
-      "date": "Prik datum"
-    }
+    "title": "prikkr"
   }
 }

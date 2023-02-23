@@ -34,3 +34,10 @@ yarn-error.log*
 
 # storybook
 storybook-static
+
+# vercel
+.env
+.vercel
+
+# vscode
+.vscode

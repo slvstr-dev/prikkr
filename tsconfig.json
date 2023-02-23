@@ -8,11 +8,7 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -23,15 +19,13 @@
     "strictNullChecks": true,
     "target": "es6",
     "paths": {
-      "@/ui/*": [
-        "./ui/*"
-      ],
-      "@/styles/*": [
-        "styles/*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "@/components/*": ["./src/components/*"],
+      "@/dictionaries/*": ["./src/dictionaries/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/src/*": ["./src/*"],
+      "@/*": ["./*"]
     },
     "plugins": [
       {
@@ -39,13 +33,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

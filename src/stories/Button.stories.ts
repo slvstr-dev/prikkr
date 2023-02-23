@@ -1,8 +1,8 @@
-import { Button } from '@/ui';
+import Button from '@/components/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Button> = {
-  title: 'ui/Button',
+  title: 'components/Button',
   tags: ['autodocs'],
   component: Button,
   args: {
@@ -18,18 +18,18 @@ export const Primary: Story = {};
 
 export const Error: Story = {
   args: {
-    kind: 'error'
+    variant: 'error'
   }
 };
 
 export const Large: Story = {
   args: {
-    size: 'large'
+    size: 18
   }
 };
 
 export const Small: Story = {
   args: {
-    size: 'small'
+    size: 14
   }
 };

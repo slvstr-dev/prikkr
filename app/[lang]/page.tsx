@@ -1,6 +1,10 @@
-import { Button } from '@/ui';
-import { getDictionary } from 'get-dictionary';
+import LocaleSwitcher from '@/components/LocaleSwitcher';
+import LoginButton from '@/components/LoginButton';
+import ThemeToggle from '@/components/ThemeToggle';
+import UserInfo from '@/components/UserInfo';
+import { getDictionary } from '@/utils/get-dictionary';
 import { Locale } from 'i18n-config';
+import { Suspense } from 'react';
 
 export default async function Page({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
@@ -9,7 +13,15 @@ export default async function Page({ params: { lang } }: { params: { lang: Local
     <section className="h-screen w-screen grid place-content-center place-items-center">
       <h1 className="text-8xl text-red-500 font-bold mb-8">{dictionary.home.title}</h1>
 
-      <Button kind="error">{dictionary.home.buttons.date}</Button>
+      <UserInfo className="mt-4" />
+
+      <div className="mt-4 flex gap-4 items-center">
+        <ThemeToggle />
+
+        <LoginButton dictionary={dictionary.general.buttons.login} />
+
+        <LocaleSwitcher />
+      </div>
     </section>
   );
 }

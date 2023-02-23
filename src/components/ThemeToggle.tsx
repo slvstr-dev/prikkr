@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import lightBulb from '../../public/svg/lightBulb.svg';
-import moon from '../../public/svg/moon.svg';
+import lightBulb from 'public/svg/lightBulb.svg';
+import moon from 'public/svg/moon.svg';
 import IconButton, { IconButtonProps } from './IconButton';
 
 interface ThemeToggleProps extends Pick<IconButtonProps, 'className' | 'size'> {}

@@ -37,7 +37,7 @@ export default function ThemeToggle({ ...props }: ThemeToggleProps) {
   return (
     <IconButton
       onClick={handleToggleMode}
-      src={isDarkTheme ? '/svg/moon.svg' : '/svg/lightBulb.svg'}
+      src={isDarkTheme ? '/svg/lightbulb.svg' : '/svg/moon.svg'}
       {...props}
     />
   );

@@ -2,15 +2,6 @@ import clsx from 'clsx';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import Anchor from './Anchor';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'error';
-  size?: 14 | 16 | 18;
-  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
-  className?: string;
-}
-
 export default function Button({
   variant = 'primary',
   size = 16,
@@ -51,4 +42,13 @@ export default function Button({
   }
 
   return null;
+}
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'error';
+  size?: 14 | 16 | 18;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+  className?: string;
 }

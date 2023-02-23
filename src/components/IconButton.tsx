@@ -3,17 +3,6 @@ import clsx from 'clsx';
 import Anchor from './Anchor';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
-export interface IconButtonProps {
-  variant?: 'primary' | 'error';
-  size?: 14 | 16 | 18;
-  alt?: string;
-  src: string;
-  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
-  className?: string;
-}
-
 export default function IconButton({
   alt,
   src,
@@ -64,4 +53,15 @@ export default function IconButton({
   }
 
   return null;
+}
+
+export interface IconButtonProps {
+  variant?: 'primary' | 'error';
+  size?: 14 | 16 | 18;
+  alt?: string;
+  src: string;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+  className?: string;
 }

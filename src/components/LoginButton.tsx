@@ -3,13 +3,6 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Button, { ButtonProps } from './Button';
 
-interface LoginButtonProps extends ButtonProps {
-  dictionary: {
-    signIn: string;
-    signOut: string;
-  };
-}
-
 export default function LoginButton({ dictionary, ...props }: LoginButtonProps) {
   const { data: sessionData } = useSession();
 
@@ -18,4 +11,11 @@ export default function LoginButton({ dictionary, ...props }: LoginButtonProps) 
       {sessionData ? dictionary.signOut : dictionary.signIn}
     </Button>
   );
+}
+
+interface LoginButtonProps extends ButtonProps {
+  dictionary: {
+    signIn: string;
+    signOut: string;
+  };
 }

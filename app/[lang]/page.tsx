@@ -4,9 +4,8 @@ import ThemeToggle from '@/components/ThemeToggle';
 import UserInfo from '@/components/UserInfo';
 import { getDictionary } from '@/utils/get-dictionary';
 import { Locale } from 'i18n-config';
-import { Suspense } from 'react';
 
-export default async function Page({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function Page({ params: { lang } }: PageProps) {
   const dictionary = await getDictionary(lang);
 
   return (
@@ -24,4 +23,8 @@ export default async function Page({ params: { lang } }: { params: { lang: Local
       </div>
     </section>
   );
+}
+
+interface PageProps {
+  params: { lang: Locale };
 }

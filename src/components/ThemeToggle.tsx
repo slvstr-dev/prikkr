@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react';
 import IconButton, { IconButtonProps } from './IconButton';
 
-interface ThemeToggleProps extends Pick<IconButtonProps, 'className' | 'size'> {}
-
 export default function ThemeToggle({ ...props }: ThemeToggleProps) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -42,3 +40,5 @@ export default function ThemeToggle({ ...props }: ThemeToggleProps) {
     />
   );
 }
+
+interface ThemeToggleProps extends Pick<IconButtonProps, 'className' | 'size'> {}

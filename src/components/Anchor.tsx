@@ -2,11 +2,6 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { AnchorHTMLAttributes } from 'react';
 
-export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: 'primary' | 'error';
-  size?: 'small' | 'medium' | 'large';
-}
-
 export default function Anchor({ className, href, ...props }: AnchorProps) {
   const classNames = clsx('inline-block', className);
 
@@ -19,4 +14,9 @@ export default function Anchor({ className, href, ...props }: AnchorProps) {
   }
 
   return <a target="_blank" rel="noopener noreferrer" className={classNames} {...props} />;
+}
+
+export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  variant?: 'primary' | 'error';
+  size?: 'small' | 'medium' | 'large';
 }

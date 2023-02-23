@@ -5,8 +5,6 @@ import Button, { ButtonProps } from './Button';
 import { usePathname } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 
-interface LocaleSwitcherProps extends Pick<ButtonProps, 'className'> {}
-
 export default function LocaleSwitcher({ className, ...props }: LocaleSwitcherProps) {
   const pathName = usePathname();
 
@@ -31,3 +29,5 @@ export default function LocaleSwitcher({ className, ...props }: LocaleSwitcherPr
     </ul>
   );
 }
+
+interface LocaleSwitcherProps extends Pick<ButtonProps, 'className'> {}

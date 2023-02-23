@@ -4,8 +4,6 @@ import { HTMLAttributes } from 'react';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 
-interface UserInfoProps extends HTMLAttributes<HTMLDivElement> {}
-
 export default function UserInfo({ ...props }: UserInfoProps) {
   const { data: session } = useSession();
 
@@ -29,3 +27,5 @@ export default function UserInfo({ ...props }: UserInfoProps) {
 
   return null;
 }
+
+interface UserInfoProps extends HTMLAttributes<HTMLDivElement> {}

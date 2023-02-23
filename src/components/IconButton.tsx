@@ -41,6 +41,7 @@ export default function IconButton({
     <Image
       src={src}
       alt={alt ?? ''}
+      width={size}
       height={size}
       className={clsx('group-hover:invert group-focus:invert transition')}
     />

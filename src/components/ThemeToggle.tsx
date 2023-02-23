@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import lightBulb from 'public/svg/lightBulb.svg';
-import moon from 'public/svg/moon.svg';
 import IconButton, { IconButtonProps } from './IconButton';
 
 interface ThemeToggleProps extends Pick<IconButtonProps, 'className' | 'size'> {}
@@ -36,5 +34,11 @@ export default function ThemeToggle({ ...props }: ThemeToggleProps) {
     }
   };
 
-  return <IconButton onClick={handleToggleMode} src={isDarkTheme ? moon : lightBulb} {...props} />;
+  return (
+    <IconButton
+      onClick={handleToggleMode}
+      src={isDarkTheme ? '/svg/moon.svg' : '/svg/lightBulb.svg'}
+      {...props}
+    />
+  );
 }

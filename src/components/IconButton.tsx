@@ -1,67 +1,80 @@
 import Image from 'next/image';
-import clsx from 'clsx';
-import Anchor from './Anchor';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { cva, VariantProps, cx } from 'class-variance-authority';
+import Link, { LinkProps } from './Link';
 
 export default function IconButton({
-  alt,
-  src,
   className,
-  size = 16,
-  variant = 'primary',
-  onClick,
-  type = 'button',
-  href
+  intent,
+  size,
+  fullWidth,
+  disabled,
+  iconSrc,
+  iconAlt,
+  iconSize = 16,
+  ...props
 }: IconButtonProps) {
-  const classNames = clsx(
-    'group grid place-content-center rounded-full font-semibold transition-colors',
-    {
-      'bg-white text-black hover:bg-black hover:text-white focus:bg-black focus:text-white outline-transparent':
-        variant === 'primary',
-      'bg-red-500 text-red-50 focus:bg-red-300 focus:text-white': variant === 'error',
-      'h-6 w-6': size === 14,
-      'h-8 w-8': size === 16,
-      'h-10 w-10': size === 18
-    },
-    className
-  );
-
   const Icon = (
     <Image
-      src={src}
-      alt={alt ?? ''}
-      width={size}
-      height={size}
-      className={clsx('group-hover:invert group-focus:invert transition')}
+      src={iconSrc}
+      alt={iconAlt ?? ''}
+      width={iconSize}
+      height={iconSize}
+      className={cx(['group-hover:invert', 'group-focus:invert', 'transition'])}
     />
   );
 
-  if (onClick) {
-    return (
-      <button className={classNames} onClick={onClick} type={type}>
-        {Icon}
-      </button>
-    );
-  }
-
-  if (href) {
-    return (
-      <Anchor className={classNames} href={href}>
-        {Icon}
-      </Anchor>
-    );
-  }
-
-  return null;
+  return (
+    <Link className={iconButton({ intent, size, fullWidth, disabled, className })} {...props}>
+      {Icon}
+    </Link>
+  );
 }
 
-export interface IconButtonProps {
-  variant?: 'primary' | 'error';
-  size?: 14 | 16 | 18;
-  alt?: string;
-  src: string;
-  onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
-  className?: string;
+const iconButton = cva(
+  [
+    'group',
+    'grid',
+    'place-content-center',
+    'rounded-full',
+    'font-semibold',
+    'outline-transparent',
+    'transition-colors'
+  ],
+  {
+    variants: {
+      intent: {
+        primary: ['bg-red-500', 'hover:bg-red-600', 'focus:bg-red-600'],
+        secondary: ['bg-white', 'text-gray-800', 'hover:bg-gray-100', 'focus:bg-gray-100']
+      },
+      size: {
+        small: ['text-sm', 'py-1', 'px-2'],
+        medium: ['text-base', 'py-2', 'px-4']
+      },
+      fullWidth: {
+        true: ['w-full']
+      },
+      disabled: {
+        true: ['opacity-50', 'cursor-not-allowed']
+      }
+    },
+    compoundVariants: [
+      {
+        intent: 'primary',
+        size: 'medium',
+        className: 'uppercase'
+      }
+    ],
+    defaultVariants: {
+      intent: 'primary',
+      size: 'medium'
+    }
+  }
+);
+
+export interface IconButtonProps
+  extends Omit<LinkProps, 'disabled'>,
+    VariantProps<typeof iconButton> {
+  iconSrc: string;
+  iconAlt?: string;
+  iconSize?: number;
 }

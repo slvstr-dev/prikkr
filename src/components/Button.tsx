@@ -1,12 +1,27 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import Link, { LinkProps } from './Link';
 
-const button = cva(['font-semibold', 'border', 'rounded'], {
+export default function Button({
+  className,
+  intent,
+  size,
+  fullWidth,
+  disabled,
+  children,
+  ...props
+}: ButtonProps) {
+  return (
+    <Link className={button({ intent, size, fullWidth, disabled, className })} {...props}>
+      {children}
+    </Link>
+  );
+}
+
+const button = cva(['font-semibold', 'rounded', 'transition-colors', 'outline-transparent'], {
   variants: {
     intent: {
-      primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
-
-      secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100']
+      primary: ['bg-red-500', 'text-white', 'hover:bg-red-600', 'focus:bg-red-600'],
+      secondary: ['bg-white', 'text-gray-800', 'hover:bg-gray-100', 'focus:bg-gray-100']
     },
     size: {
       small: ['text-sm', 'py-1', 'px-2'],
@@ -31,21 +46,5 @@ const button = cva(['font-semibold', 'border', 'rounded'], {
     size: 'medium'
   }
 });
-
-export default function Button({
-  className,
-  intent,
-  size,
-  fullWidth,
-  disabled,
-  children,
-  ...props
-}: ButtonProps) {
-  return (
-    <Link className={button({ intent, size, fullWidth, disabled, className })} {...props}>
-      {children}
-    </Link>
-  );
-}
 
 export interface ButtonProps extends Omit<LinkProps, 'disabled'>, VariantProps<typeof button> {}

@@ -1,10 +1,11 @@
+import { cva } from 'class-variance-authority';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 export default function Link(props: LinkProps) {
   if (props.type || props.onClick) return <button {...props} />;
 
-  return <NextLink href={props.href ?? '#'} {...props} />;
+  return <NextLink className={link()} href={props.href ?? '#'} {...props} />;
 }
 
 export interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,5 +17,17 @@ export interface BaseLinkProps
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextLinkProps> {
   href?: NextLinkProps['href'];
 }
+
+const link = cva([], {
+  variants: {
+    underline: {
+      true: 'underline hover:no-underline focus:no-underline',
+      false: 'no-underline hover:underline focus:underline'
+    }
+  },
+  defaultVariants: {
+    underline: true
+  }
+});
 
 export type LinkProps = BaseButtonProps & BaseLinkProps;

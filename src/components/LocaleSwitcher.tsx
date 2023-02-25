@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import Button, { ButtonProps } from './Button';
 import { usePathname } from 'next/navigation';
 import { i18n } from '@/i18n-config';
@@ -18,15 +17,15 @@ export default function LocaleSwitcher({ className, ...props }: LocaleSwitcherPr
   };
 
   return (
-    <ul className={clsx('flex gap-4', className)} {...props}>
+    <>
       {i18n.locales.map((locale) => {
         return (
-          <li key={locale}>
-            <Button href={redirectedPathName(locale)}>{locale}</Button>
-          </li>
+          <Button key={locale} href={redirectedPathName(locale)}>
+            {locale}
+          </Button>
         );
       })}
-    </ul>
+    </>
   );
 }
 

@@ -26,7 +26,7 @@ export async function generateMetadata({
 export default async function Root({ children, params }: RootProps) {
   return (
     <html lang={params.lang} className={`${playfairDisplay.variable} ${workSans.variable}`}>
-      <body className="bg-yellow-50 dark:bg-slate-800 bg:text-white">
+      <body className="bg-yellow-50 bg:text-white">
         <Providers>{children}</Providers>
       </body>
     </html>

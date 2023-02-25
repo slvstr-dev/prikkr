@@ -1,4 +1,4 @@
-import { Playfair_Display, Work_Sans } from '@next/font/google';
+import { Playfair_Display, Work_Sans } from 'next/font/google';
 
 export const playfairDisplay = Playfair_Display({
   subsets: ['latin'],

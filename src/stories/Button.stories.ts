@@ -15,21 +15,3 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
-
-export const Error: Story = {
-  args: {
-    variant: 'error'
-  }
-};
-
-export const Large: Story = {
-  args: {
-    size: 18
-  }
-};
-
-export const Small: Story = {
-  args: {
-    size: 14
-  }
-};

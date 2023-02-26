@@ -15,6 +15,7 @@ function getLocale(request: NextRequest): string | undefined {
   let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales;
+
   return matchLocale(languages, locales, i18n.defaultLocale);
 }
 

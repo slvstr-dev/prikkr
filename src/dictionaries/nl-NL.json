@@ -1,17 +1,44 @@
 {
-  "general": {
-    "metadata": {
-      "title": "prikkr",
-      "description": "prikkr is de tool om jouw volgende afspraak te plannen."
-    },
-    "buttons": {
-      "login": {
-        "signIn": "Inloggen",
-        "signOut": "Uitloggen"
+  "pages": {
+    "general": {
+      "metadata": {
+        "title": "prikkr",
+        "description": "prikkr is de tool om jouw volgende afspraak te plannen."
+      },
+      "buttons": {
+        "login": {
+          "signIn": "Inloggen",
+          "signOut": "Uitloggen"
+        }
       }
+    },
+    "home": {
+      "href": "/",
+      "title": "prikkr"
+    },
+    "contact": {
+      "href": "/contact",
+      "title": "contact"
+    },
+    "dashboard": {
+      "href": "/dashboard",
+      "title": "dashboard"
+    },
+    "appointments": {
+      "href": "/dashboard/appointments",
+      "title": "afspraken"
+    },
+    "settings": {
+      "href": "/dashboard/settings",
+      "title": "instellingen"
     }
   },
-  "home": {
-    "title": "prikkr"
+  "components": {
+    "footer": {
+      "author": {
+        "href": "https://slvstr.dev",
+        "label": "slvstr.dev"
+      }
+    }
   }
 }

@@ -1,17 +1,44 @@
 {
-  "general": {
-    "metadata": {
-      "title": "prikkr",
-      "description": "prikkr is the tool to plan your next meeting."
-    },
-    "buttons": {
-      "login": {
-        "signIn": "Login",
-        "signOut": "Logout"
+  "pages": {
+    "general": {
+      "metadata": {
+        "title": "prikkr",
+        "description": "prikkr is the tool to plan your next meeting."
+      },
+      "buttons": {
+        "login": {
+          "signIn": "Login",
+          "signOut": "Logout"
+        }
       }
+    },
+    "home": {
+      "href": "/",
+      "title": "prikkr"
+    },
+    "contact": {
+      "href": "/contact",
+      "title": "contact"
+    },
+    "dashboard": {
+      "href": "/dashboard",
+      "title": "dashboard"
+    },
+    "appointments": {
+      "href": "/dashboard/appointments",
+      "title": "appointments"
+    },
+    "settings": {
+      "href": "/dashboard/settings",
+      "title": "settings"
     }
   },
-  "home": {
-    "title": "prikkr"
+  "components": {
+    "footer": {
+      "author": {
+        "href": "https://slvstr.dev",
+        "label": "slvstr.dev"
+      }
+    }
   }
 }

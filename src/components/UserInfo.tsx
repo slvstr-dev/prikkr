@@ -1,33 +1,32 @@
 'use client';
 
-import { HTMLAttributes } from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import { useSession } from 'next-auth/react';
+import { cva, cx } from 'class-variance-authority';
 
-export default function UserInfo({ ...props }: UserInfoProps) {
+export default function UserInfo({ className, ...props }: UserInfoProps) {
   const { data: session } = useSession();
 
   return (
-    <>
-      {session?.user && (
-        <div {...props}>
-          {session.user.image && (
-            <Image
-              src={session.user.image}
-              alt={session.user.name ?? ''}
-              width={96}
-              height={96}
-              className="rounded-full mb-4 mx-auto"
-            />
-          )}
-
-          <pre className="rounded-3xl p-4 bg-white whitespace-pre-wrap break-all">
-            {JSON.stringify(session.user, null, 2)}
-          </pre>
-        </div>
+    <div className={cx(userInfo(), className)}>
+      {session?.user?.image && (
+        <Image
+          src={session.user.image}
+          alt={session.user.name ?? ''}
+          width={60}
+          height={60}
+          className="rounded-full mx-auto"
+          {...props}
+        />
       )}
-    </>
+
+      {session?.user.name && <p className="mt-2 font-bold">{session.user.name}</p>}
+
+      {session?.user.email && <p className="opacity-50 font-small">{session.user.email}</p>}
+    </div>
   );
 }
 
-interface UserInfoProps extends HTMLAttributes<HTMLDivElement> {}
+const userInfo = cva(['flex', 'flex-col', 'items-center', 'gap-0_5']);
+
+interface UserInfoProps extends Omit<ImageProps, 'src' | 'alt'> {}

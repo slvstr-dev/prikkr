@@ -13,33 +13,21 @@ export default function IconButton({
   iconSize = 16,
   ...props
 }: IconButtonProps) {
-  const Icon = (
-    <Image
-      src={iconSrc}
-      alt={iconAlt ?? ''}
-      width={iconSize}
-      height={iconSize}
-      className={cx(['group-hover:invert', 'group-focus:invert', 'transition'])}
-    />
-  );
-
   return (
     <Link className={iconButton({ intent, size, fullWidth, disabled, className })} {...props}>
-      {Icon}
+      <Image
+        src={iconSrc}
+        alt={iconAlt ?? ''}
+        width={iconSize}
+        height={iconSize}
+        className={'invert'}
+      />
     </Link>
   );
 }
 
 const iconButton = cva(
-  [
-    'group',
-    'grid',
-    'place-content-center',
-    'rounded-full',
-    'font-semibold',
-    'outline-transparent',
-    'transition-colors'
-  ],
+  ['grid', 'place-content-center', 'rounded-full', 'font-semibold', 'transition-colors'],
   {
     variants: {
       intent: {
@@ -47,8 +35,8 @@ const iconButton = cva(
         secondary: ['bg-white', 'text-gray-800', 'hover:bg-gray-100', 'focus:bg-gray-100']
       },
       size: {
-        small: ['text-sm', 'py-1', 'px-2'],
-        medium: ['text-base', 'py-2', 'px-4']
+        small: ['text-sm', 'p-2'],
+        medium: ['text-base', 'p-4']
       },
       fullWidth: {
         true: ['w-full']

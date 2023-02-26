@@ -4,12 +4,6 @@
       "metadata": {
         "title": "prikkr",
         "description": "prikkr is the tool to plan your next meeting."
-      },
-      "buttons": {
-        "login": {
-          "signIn": "Login",
-          "signOut": "Logout"
-        }
       }
     },
     "home": {

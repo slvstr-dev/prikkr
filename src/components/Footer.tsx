@@ -1,5 +1,6 @@
 import { Locale } from '@/i18n-config';
 import { getDictionary } from '@/utils/get-dictionary';
+import { cva, VariantProps } from 'class-variance-authority';
 import Link from './Link';
 
 export default async function Footer({ lang }: FooterProps) {
@@ -8,14 +9,16 @@ export default async function Footer({ lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="h-11 bg-red-600 text-white text-center grid items-center">
+    <footer className={footer()}>
       <Link href={dictionary.components.footer.author.href} underline={false}>
-        {currentYear} {dictionary.components.footer.author.label}
+        &copy;{currentYear} {dictionary.components.footer.author.label}
       </Link>
     </footer>
   );
 }
 
-interface FooterProps {
+const footer = cva(['h-11', 'bg-red-600', 'text-white', 'grid', 'place-content-center']);
+
+interface FooterProps extends VariantProps<typeof footer> {
   lang: Locale;
 }

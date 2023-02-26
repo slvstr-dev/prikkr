@@ -1,21 +1,20 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
-import Button, { ButtonProps } from './Button';
+import IconButton, { IconButtonProps } from './IconButton';
 
-export default function LoginButton({ dictionary, ...props }: LoginButtonProps) {
+export default function LoginButton({ ...props }: LoginButtonProps) {
   const { data: sessionData } = useSession();
 
   return (
-    <Button onClick={sessionData ? () => void signOut() : () => void signIn()} {...props}>
-      {sessionData ? dictionary.signOut : dictionary.signIn}
-    </Button>
+    <IconButton
+      iconSrc={
+        sessionData ? '/svg/arrow-right-from-bracket.svg' : '/svg/arrow-right-to-bracket.svg'
+      }
+      onClick={sessionData ? () => void signOut() : () => void signIn()}
+      {...props}
+    />
   );
 }
 
-interface LoginButtonProps extends ButtonProps {
-  dictionary: {
-    signIn: string;
-    signOut: string;
-  };
-}
+interface LoginButtonProps extends Omit<IconButtonProps, 'iconSrc'> {}

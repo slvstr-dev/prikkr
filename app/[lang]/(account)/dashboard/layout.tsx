@@ -1,5 +1,4 @@
 import Footer from '@/components/Footer';
-import LoginButton from '@/components/LoginButton';
 import Sidebar from '@/components/Sidebar';
 import { Locale } from '@/i18n-config';
 import { getDictionary } from '@/utils/get-dictionary';
@@ -19,24 +18,16 @@ export default async function DashboardLayout({
     {
       href: dictionary.pages.appointments.href,
       label: dictionary.pages.appointments.title
-    },
-    {
-      href: dictionary.pages.settings.href,
-      label: dictionary.pages.settings.title
     }
   ];
 
   return (
     <>
-      <header className="m-4 flex gap-4 items-center justify-end flex-wrap">
-        <LoginButton dictionary={dictionary.pages.general.buttons.login} />
-      </header>
+      <div className="flex-grow flex">
+        <Sidebar className="w-56" lang={lang} navItems={navItems} />
 
-      <main className="flex-grow flex">
-        <Sidebar navItems={navItems} />
-
-        {children}
-      </main>
+        <div className="flex-grow p-4">{children}</div>
+      </div>
 
       {/* @ts-expect-error Server Component */}
       <Footer lang={lang} />

@@ -1,6 +1,7 @@
 {
   "name": "prikkr",
   "description": "Next.js-app for picking the best date for your meeting.",
+  "author": "slvstr.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {

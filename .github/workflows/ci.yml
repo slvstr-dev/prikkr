@@ -18,7 +18,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - name: Install frozen lockfile
-        run: pnpm install --frozen-lockfile
       - name: Install dependencies
-        run: pnpm run ci
+        run: pnpm install --frozen-lockfile
